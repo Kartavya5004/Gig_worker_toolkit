@@ -1,0 +1,1225 @@
+{
+  "worker": {
+    "name": "Rajesh Kumar",
+    "phone": "+91 98765 43210",
+    "city": "Bengaluru, Karnataka",
+    "vehicle": "Hero Splendor Plus (Two-Wheeler)",
+    "vehicle_number": "KA 05 EQ 8421",
+    "primary_platforms": [
+      "Swiggy",
+      "Uber",
+      "Zepto"
+    ],
+    "e_shram_uan": "UAN-8834-9102-7712",
+    "e_shram_registered": true,
+    "bank_account_verified": true,
+    "liquid_savings": 21500.0,
+    "daily_living_burn_rate": 620.0,
+    "days_worked_count": 77,
+    "target_benefit_rule": 90
+  },
+  "insurance": {
+    "active_today": true,
+    "policy_id": "GS-DIGIT-2026-DCBF9C",
+    "provider": "Digit Micro-Sure (Mock IRDAI Licensed Partner)",
+    "activated_at": "2026-11-16T16:15:41.924991",
+    "expires_at": "2026-11-16T23:59:59",
+    "daily_cost": 5.0,
+    "coverages": {
+      "accidental_death_disability": 200000.0,
+      "road_hospitalization": 50000.0,
+      "loss_of_income_daily": 500.0
+    },
+    "claims_history": [
+      {
+        "claim_id": "CLM-2026-031",
+        "date": "2026-09-14",
+        "type": "Emergency Outpatient Treatment (Minor Skid)",
+        "claimed": 3800.0,
+        "settled": 3800.0,
+        "status": "Settled in 4 hrs"
+      }
+    ]
+  },
+  "records": [
+    {
+      "id": "tx-inc-2026-09-17-1",
+      "date": "2026-09-17",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1121,
+      "trips": 8,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-09-17-2",
+      "date": "2026-09-17",
+      "type": "income",
+      "platform": "Zepto",
+      "amount": 599,
+      "trips": 6,
+      "description": "Zepto peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-09-17-fuel",
+      "date": "2026-09-17",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 263,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-18-1",
+      "date": "2026-09-18",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 707,
+      "trips": 12,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-09-18-fuel",
+      "date": "2026-09-18",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 218,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-19-1",
+      "date": "2026-09-19",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 902,
+      "trips": 12,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-09-19-fuel",
+      "date": "2026-09-19",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 266,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-20-1",
+      "date": "2026-09-20",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 770,
+      "trips": 14,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-09-20-2",
+      "date": "2026-09-20",
+      "type": "income",
+      "platform": "Zomato",
+      "amount": 456,
+      "trips": 7,
+      "description": "Zomato peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-09-20-fuel",
+      "date": "2026-09-20",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 217,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-21-1",
+      "date": "2026-09-21",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 674,
+      "trips": 10,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-09-21-fuel",
+      "date": "2026-09-21",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 202,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-22-1",
+      "date": "2026-09-22",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 829,
+      "trips": 14,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-09-22-fuel",
+      "date": "2026-09-22",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 183,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-23-1",
+      "date": "2026-09-23",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 989,
+      "trips": 8,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-09-23-2",
+      "date": "2026-09-23",
+      "type": "income",
+      "platform": "Zepto",
+      "amount": 616,
+      "trips": 7,
+      "description": "Zepto peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-09-23-fuel",
+      "date": "2026-09-23",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 279,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-24-1",
+      "date": "2026-09-24",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 1067,
+      "trips": 14,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-09-24-fuel",
+      "date": "2026-09-24",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 186,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-25-1",
+      "date": "2026-09-25",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 936,
+      "trips": 12,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-09-25-fuel",
+      "date": "2026-09-25",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 268,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-26-1",
+      "date": "2026-09-26",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 654,
+      "trips": 10,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-09-26-2",
+      "date": "2026-09-26",
+      "type": "income",
+      "platform": "Zomato",
+      "amount": 601,
+      "trips": 4,
+      "description": "Zomato peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-09-26-fuel",
+      "date": "2026-09-26",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 210,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-27-1",
+      "date": "2026-09-27",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 969,
+      "trips": 8,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-09-27-fuel",
+      "date": "2026-09-27",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 243,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-28-1",
+      "date": "2026-09-28",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 862,
+      "trips": 8,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-09-28-fuel",
+      "date": "2026-09-28",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 208,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-09-30-1",
+      "date": "2026-09-30",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 814,
+      "trips": 13,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-09-30-fuel",
+      "date": "2026-09-30",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 193,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-01-1",
+      "date": "2026-10-01",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1034,
+      "trips": 8,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-01-fuel",
+      "date": "2026-10-01",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 283,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-02-1",
+      "date": "2026-10-02",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 685,
+      "trips": 12,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-10-02-2",
+      "date": "2026-10-02",
+      "type": "income",
+      "platform": "Zomato",
+      "amount": 352,
+      "trips": 6,
+      "description": "Zomato peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-10-02-fuel",
+      "date": "2026-10-02",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 201,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-03-1",
+      "date": "2026-10-03",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 759,
+      "trips": 9,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-03-fuel",
+      "date": "2026-10-03",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 288,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-04-1",
+      "date": "2026-10-04",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 955,
+      "trips": 10,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-04-fuel",
+      "date": "2026-10-04",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 257,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-05-1",
+      "date": "2026-10-05",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 763,
+      "trips": 10,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-10-05-2",
+      "date": "2026-10-05",
+      "type": "income",
+      "platform": "Zepto",
+      "amount": 445,
+      "trips": 7,
+      "description": "Zepto peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-10-05-fuel",
+      "date": "2026-10-05",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 222,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-exp-2026-10-05-emi",
+      "date": "2026-10-05",
+      "type": "expense",
+      "category": "EMI",
+      "amount": 2850.0,
+      "description": "Hero Splendor bike loan EMI"
+    },
+    {
+      "id": "tx-inc-2026-10-06-1",
+      "date": "2026-10-06",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 676,
+      "trips": 10,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-06-fuel",
+      "date": "2026-10-06",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 280,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-07-1",
+      "date": "2026-10-07",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1015,
+      "trips": 14,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-07-fuel",
+      "date": "2026-10-07",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 196,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-08-1",
+      "date": "2026-10-08",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 836,
+      "trips": 9,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-10-08-2",
+      "date": "2026-10-08",
+      "type": "income",
+      "platform": "Zomato",
+      "amount": 460,
+      "trips": 5,
+      "description": "Zomato peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-10-08-fuel",
+      "date": "2026-10-08",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 272,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-09-1",
+      "date": "2026-10-09",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1118,
+      "trips": 9,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-09-fuel",
+      "date": "2026-10-09",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 248,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-10-1",
+      "date": "2026-10-10",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 1141,
+      "trips": 9,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-10-fuel",
+      "date": "2026-10-10",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 196,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-11-1",
+      "date": "2026-10-11",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 723,
+      "trips": 8,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-10-11-2",
+      "date": "2026-10-11",
+      "type": "income",
+      "platform": "Zepto",
+      "amount": 615,
+      "trips": 6,
+      "description": "Zepto peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-10-11-fuel",
+      "date": "2026-10-11",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 234,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-12-1",
+      "date": "2026-10-12",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 1022,
+      "trips": 10,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-12-fuel",
+      "date": "2026-10-12",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 229,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-13-1",
+      "date": "2026-10-13",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 791,
+      "trips": 14,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-13-fuel",
+      "date": "2026-10-13",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 228,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-14-1",
+      "date": "2026-10-14",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 1073,
+      "trips": 10,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-10-14-2",
+      "date": "2026-10-14",
+      "type": "income",
+      "platform": "Zomato",
+      "amount": 536,
+      "trips": 4,
+      "description": "Zomato peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-10-14-fuel",
+      "date": "2026-10-14",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 264,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-15-1",
+      "date": "2026-10-15",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 972,
+      "trips": 13,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-15-fuel",
+      "date": "2026-10-15",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 204,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-16-1",
+      "date": "2026-10-16",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 1009,
+      "trips": 13,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-16-fuel",
+      "date": "2026-10-16",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 254,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-17-1",
+      "date": "2026-10-17",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1075,
+      "trips": 11,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-10-17-2",
+      "date": "2026-10-17",
+      "type": "income",
+      "platform": "Zepto",
+      "amount": 532,
+      "trips": 6,
+      "description": "Zepto peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-10-17-fuel",
+      "date": "2026-10-17",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 250,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-18-1",
+      "date": "2026-10-18",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 653,
+      "trips": 8,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-18-fuel",
+      "date": "2026-10-18",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 236,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-19-1",
+      "date": "2026-10-19",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1086,
+      "trips": 8,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-19-fuel",
+      "date": "2026-10-19",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 223,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-21-1",
+      "date": "2026-10-21",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 896,
+      "trips": 8,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-21-fuel",
+      "date": "2026-10-21",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 232,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-22-1",
+      "date": "2026-10-22",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 1031,
+      "trips": 14,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-22-fuel",
+      "date": "2026-10-22",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 209,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-23-1",
+      "date": "2026-10-23",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1075,
+      "trips": 12,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-10-23-2",
+      "date": "2026-10-23",
+      "type": "income",
+      "platform": "Zepto",
+      "amount": 381,
+      "trips": 5,
+      "description": "Zepto peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-10-23-fuel",
+      "date": "2026-10-23",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 195,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-24-1",
+      "date": "2026-10-24",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 763,
+      "trips": 10,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-24-fuel",
+      "date": "2026-10-24",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 227,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-25-1",
+      "date": "2026-10-25",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1097,
+      "trips": 12,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-25-fuel",
+      "date": "2026-10-25",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 224,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-26-1",
+      "date": "2026-10-26",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 930,
+      "trips": 9,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-10-26-2",
+      "date": "2026-10-26",
+      "type": "income",
+      "platform": "Zomato",
+      "amount": 552,
+      "trips": 4,
+      "description": "Zomato peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-10-26-fuel",
+      "date": "2026-10-26",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 208,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-27-1",
+      "date": "2026-10-27",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1062,
+      "trips": 11,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-27-fuel",
+      "date": "2026-10-27",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 279,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-28-1",
+      "date": "2026-10-28",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 766,
+      "trips": 8,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-28-fuel",
+      "date": "2026-10-28",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 199,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-29-1",
+      "date": "2026-10-29",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 797,
+      "trips": 9,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-10-29-2",
+      "date": "2026-10-29",
+      "type": "income",
+      "platform": "Zepto",
+      "amount": 532,
+      "trips": 4,
+      "description": "Zepto peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-10-29-fuel",
+      "date": "2026-10-29",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 278,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-30-1",
+      "date": "2026-10-30",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 787,
+      "trips": 9,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-30-fuel",
+      "date": "2026-10-30",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 192,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-10-31-1",
+      "date": "2026-10-31",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1120,
+      "trips": 12,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-10-31-fuel",
+      "date": "2026-10-31",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 276,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-01-1",
+      "date": "2026-11-01",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 956,
+      "trips": 10,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-11-01-2",
+      "date": "2026-11-01",
+      "type": "income",
+      "platform": "Zomato",
+      "amount": 592,
+      "trips": 7,
+      "description": "Zomato peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-11-01-fuel",
+      "date": "2026-11-01",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 243,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-02-1",
+      "date": "2026-11-02",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1135,
+      "trips": 12,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-11-02-fuel",
+      "date": "2026-11-02",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 255,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-03-1",
+      "date": "2026-11-03",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 1116,
+      "trips": 9,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-11-03-fuel",
+      "date": "2026-11-03",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 244,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-04-1",
+      "date": "2026-11-04",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 1111,
+      "trips": 13,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-11-04-2",
+      "date": "2026-11-04",
+      "type": "income",
+      "platform": "Zepto",
+      "amount": 539,
+      "trips": 7,
+      "description": "Zepto peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-11-04-fuel",
+      "date": "2026-11-04",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 249,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-05-1",
+      "date": "2026-11-05",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 864,
+      "trips": 8,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-11-05-fuel",
+      "date": "2026-11-05",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 197,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-exp-2026-11-05-emi",
+      "date": "2026-11-05",
+      "type": "expense",
+      "category": "EMI",
+      "amount": 2850.0,
+      "description": "Hero Splendor bike loan EMI"
+    },
+    {
+      "id": "tx-inc-2026-11-06-1",
+      "date": "2026-11-06",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 712,
+      "trips": 14,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-11-06-fuel",
+      "date": "2026-11-06",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 281,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-07-1",
+      "date": "2026-11-07",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 755,
+      "trips": 12,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-11-07-2",
+      "date": "2026-11-07",
+      "type": "income",
+      "platform": "Zomato",
+      "amount": 576,
+      "trips": 6,
+      "description": "Zomato peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-11-07-fuel",
+      "date": "2026-11-07",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 180,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-08-1",
+      "date": "2026-11-08",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 796,
+      "trips": 13,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-11-08-fuel",
+      "date": "2026-11-08",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 290,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-09-1",
+      "date": "2026-11-09",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 930,
+      "trips": 10,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-11-09-fuel",
+      "date": "2026-11-09",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 220,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-11-1",
+      "date": "2026-11-11",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 880,
+      "trips": 12,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-11-11-fuel",
+      "date": "2026-11-11",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 257,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-12-1",
+      "date": "2026-11-12",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 844,
+      "trips": 11,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-11-12-fuel",
+      "date": "2026-11-12",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 290,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-13-1",
+      "date": "2026-11-13",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 878,
+      "trips": 12,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-inc-2026-11-13-2",
+      "date": "2026-11-13",
+      "type": "income",
+      "platform": "Zomato",
+      "amount": 458,
+      "trips": 6,
+      "description": "Zomato peak surge earnings"
+    },
+    {
+      "id": "tx-exp-2026-11-13-fuel",
+      "date": "2026-11-13",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 271,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-14-1",
+      "date": "2026-11-14",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 826,
+      "trips": 12,
+      "description": "Swiggy delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-11-14-fuel",
+      "date": "2026-11-14",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 274,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-15-1",
+      "date": "2026-11-15",
+      "type": "income",
+      "platform": "Uber",
+      "amount": 652,
+      "trips": 14,
+      "description": "Uber delivery/rides payout"
+    },
+    {
+      "id": "tx-exp-2026-11-15-fuel",
+      "date": "2026-11-15",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 221,
+      "description": "Daily bike petrol"
+    },
+    {
+      "id": "tx-inc-2026-11-16-1",
+      "date": "2026-11-16",
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 890.0,
+      "trips": 11,
+      "description": "Lunch + evening food deliveries"
+    },
+    {
+      "id": "tx-exp-2026-11-16-fuel",
+      "date": "2026-11-16",
+      "type": "expense",
+      "category": "Fuel",
+      "amount": 220.0,
+      "description": "Morning petrol top-up (2.1 Liters)"
+    },
+    {
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 850.0,
+      "description": "Voice logged earnings from Swiggy",
+      "id": "tx-136-1794825903",
+      "date": "2026-11-16"
+    },
+    {
+      "type": "income",
+      "platform": "Swiggy",
+      "amount": 850.0,
+      "description": "Voice logged earnings from Swiggy",
+      "id": "tx-137-1794825941",
+      "date": "2026-11-16"
+    },
+    {
+      "date": "2026-11-16",
+      "type": "expense",
+      "category": "Micro-Insurance",
+      "amount": 5.0,
+      "description": "Day-wise accident cover policy GS-DIGIT-2026-DCBF9C",
+      "id": "tx-138-1794825941"
+    }
+  ]
+}

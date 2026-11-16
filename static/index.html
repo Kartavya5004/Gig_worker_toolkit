@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>GigSure | Financial Toolkit for India's Gig Workers</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#2563eb',
+              600: '#1d4ed8',
+              700: '#1e40af',
+              red: '#E11D48',
+              accent: '#F97316',
+              green: '#10B981',
+              dark: '#0F172A'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Noto Sans Devanagari"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col items-center">
+
+  <!-- Desktop App Frame Container (Adaptive: Full width or Phone Mockup) -->
+  <div id="appContainer" class="w-full max-w-5xl min-h-screen bg-slate-950 border-x border-slate-800 shadow-2xl flex flex-col transition-all duration-300">
+    
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur border-b border-slate-800 px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-600 via-orange-500 to-amber-400 flex items-center justify-center shadow-lg shadow-rose-900/40">
+          <i data-lucide="shield-check" class="w-6 h-6 text-white stroke-[2.5]"></i>
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-xl font-extrabold tracking-tight text-white">Gig<span class="text-rose-500">Sure</span></h1>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">Glitch '26</span>
+          </div>
+          <p id="appTagline" class="text-xs text-slate-400 font-medium">Financial Safety & Income Toolkit</p>
+        </div>
+      </div>
+
+      <!-- Controls: Language + Device Frame Toggle -->
+      <div class="flex items-center space-x-2">
+        <!-- Language Switcher -->
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-200 border border-slate-700 transition">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-rose-400"></i>
+          <span id="currentLangLabel">हिंदी</span>
+        </button>
+
+        <!-- Viewport Switcher -->
+        <button id="deviceToggleBtn" onclick="toggleDeviceView()" title="Toggle Mobile / Fullscreen View" class="hidden sm:flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 border border-slate-700 transition">
+          <i data-lucide="smartphone" class="w-3.5 h-3.5 text-blue-400"></i>
+          <span id="deviceViewLabel">Mobile View</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Worker Profile & Day-Shield Live Bar -->
+    <div class="bg-gradient-to-r from-slate-900 via-slate-850 to-slate-900 border-b border-slate-800 p-3 sm:px-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <!-- Worker Badge -->
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-full bg-slate-800 border-2 border-slate-700 flex items-center justify-center font-bold text-white text-sm">
+            RK
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span id="workerName" class="font-bold text-slate-100 text-sm sm:text-base">Rajesh Kumar</span>
+              <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                <i data-lucide="check" class="w-3 h-3 mr-1"></i> e-Shram Verified
+              </span>
+            </div>
+            <div class="text-xs text-slate-400 flex items-center space-x-2">
+              <span>Hero Splendor Plus</span>
+              <span>•</span>
+              <span class="text-amber-400 font-medium">Swiggy | Uber | Zepto</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- The USP: Day-Wise Micro-Insurance Switch -->
+        <div id="dayShieldBanner" class="flex items-center justify-between sm:justify-end space-x-3 bg-slate-900/80 p-2.5 rounded-xl border border-slate-700/60 shadow-inner">
+          <div class="text-left sm:text-right">
+            <div class="flex items-center sm:justify-end space-x-1.5">
+              <span id="shieldStatusDot" class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span id="shieldStatusText" class="text-xs font-bold text-emerald-400">Day-Shield: ACTIVE</span>
+            </div>
+            <p id="shieldSubtitle" class="text-[11px] text-slate-400">₹2,00,000 cover · ₹5/day</p>
+          </div>
+          <!-- Toggle Button -->
+          <button id="toggleInsuranceBtn" onclick="toggleInsurance()" class="relative inline-flex h-7 w-13 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-emerald-600 transition-colors duration-200 ease-in-out focus:outline-none">
+            <span id="toggleIndicator" class="translate-x-6 inline-block h-6 w-6 transform rounded-full bg-white shadow-md transition duration-200 ease-in-out"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Tabs -->
+    <nav class="bg-slate-900/80 px-2 sm:px-6 border-b border-slate-800 flex space-x-1 sm:space-x-3 overflow-x-auto no-scrollbar py-2">
+      <button onclick="switchTab('dashboard')" id="tab-dashboard" class="tab-btn active-tab flex items-center space-x-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition">
+        <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+        <span data-i18n="tab_dashboard">Dashboard & Net</span>
+      </button>
+      <button onclick="switchTab('ingestion')" id="tab-ingestion" class="tab-btn flex items-center space-x-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap text-slate-400 hover:text-white transition">
+        <i data-lucide="scan" class="w-4 h-4"></i>
+        <span data-i18n="tab_ingest">OCR & Voice Log</span>
+      </button>
+      <button onclick="switchTab('tax')" id="tab-tax" class="tab-btn flex items-center space-x-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap text-slate-400 hover:text-white transition">
+        <i data-lucide="receipt" class="w-4 h-4"></i>
+        <span data-i18n="tab_tax">Tax & Loan Proof</span>
+      </button>
+      <button onclick="switchTab('protect')" id="tab-protect" class="tab-btn flex items-center space-x-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap text-slate-400 hover:text-white transition">
+        <i data-lucide="shield" class="w-4 h-4"></i>
+        <span data-i18n="tab_protect">Protect & 90-Days</span>
+      </button>
+      <button onclick="switchTab('trust')" id="tab-trust" class="tab-btn flex items-center space-x-1.5 px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap text-slate-400 hover:text-white transition">
+        <i data-lucide="lock" class="w-4 h-4"></i>
+        <span data-i18n="tab_trust">Trust & Privacy</span>
+      </button>
+    </nav>
+
+    <!-- CONTENT BODY (Scrollable) -->
+    <main class="flex-1 p-3 sm:p-6 overflow-y-auto space-y-6">
+
+      <!-- ================= TAB 1: DASHBOARD & TRUE NET ================= -->
+      <section id="view-dashboard" class="space-y-6">
+        <!-- Today's Financial Reality Metric Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+          <!-- Gross Inflow -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 relative overflow-hidden">
+            <div class="flex items-center justify-between text-slate-400 text-xs font-medium mb-1">
+              <span data-i18n="card_gross">Today's Gross Payouts</span>
+              <span class="p-1 rounded bg-blue-500/10 text-blue-400"><i data-lucide="trending-up" class="w-4 h-4"></i></span>
+            </div>
+            <div id="dashTodayGross" class="text-2xl sm:text-3xl font-extrabold text-white">₹890</div>
+            <div class="text-[11px] text-slate-500 mt-1 flex items-center space-x-1">
+              <span>Swiggy 11 orders</span>
+            </div>
+          </div>
+
+          <!-- True Operating Expenses -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 relative overflow-hidden">
+            <div class="flex items-center justify-between text-slate-400 text-xs font-medium mb-1">
+              <span data-i18n="card_fuel">Fuel & Operating Cost</span>
+              <span class="p-1 rounded bg-rose-500/10 text-rose-400"><i data-lucide="fuel" class="w-4 h-4"></i></span>
+            </div>
+            <div id="dashTodayExpense" class="text-2xl sm:text-3xl font-extrabold text-rose-400">-₹225</div>
+            <div class="text-[11px] text-slate-500 mt-1 flex items-center space-x-1">
+              <span>Petrol ₹220 + Day-Shield ₹5</span>
+            </div>
+          </div>
+
+          <!-- True Net Take-Home -->
+          <div class="bg-gradient-to-br from-emerald-950/60 to-slate-900 border border-emerald-800/40 rounded-2xl p-4 relative overflow-hidden shadow-lg shadow-emerald-950/20">
+            <div class="flex items-center justify-between text-emerald-400 text-xs font-medium mb-1">
+              <span data-i18n="card_net">True Net Take-Home</span>
+              <span class="p-1 rounded bg-emerald-500/20 text-emerald-300"><i data-lucide="wallet" class="w-4 h-4"></i></span>
+            </div>
+            <div id="dashTodayNet" class="text-2xl sm:text-3xl font-extrabold text-emerald-300">₹665</div>
+            <div class="text-[11px] text-emerald-400/80 mt-1">
+              <span data-i18n="net_margin_label">74.7% Net Realization</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 90-Day Trailing Summary Banner -->
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+              <i data-lucide="award" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h3 class="text-sm sm:text-base font-bold text-white" data-i18n="history_headline">60-Day Multi-Platform Income Record</h3>
+              <p class="text-xs text-slate-400 mt-0.5">
+                Total Gross: <b id="dashTotalGross" class="text-slate-200">₹98,400</b> | Fuel & EMI: <b id="dashTotalExp" class="text-rose-400">₹31,000</b> | Net: <b id="dashTotalNet" class="text-emerald-400">₹67,400</b>
+              </p>
+            </div>
+          </div>
+          <button onclick="switchTab('tax')" class="w-full md:w-auto px-4 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-xs font-bold text-white shadow-lg shadow-blue-900/30 flex items-center justify-center space-x-2 transition">
+            <i data-lucide="file-text" class="w-4 h-4"></i>
+            <span data-i18n="btn_gen_loan_pdf">View Loan-Ready Certificate</span>
+          </button>
+        </div>
+
+        <!-- Platform Breakdown & Charts Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Platform Distribution Chart -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                <i data-lucide="pie-chart" class="w-4 h-4 text-orange-400"></i>
+                <span data-i18n="title_platform_dist">Earnings By Platform</span>
+              </h3>
+              <span class="text-xs text-slate-500">Last 60 Days</span>
+            </div>
+            <div class="h-56 flex items-center justify-center">
+              <canvas id="platformChart"></canvas>
+            </div>
+          </div>
+
+          <!-- Weekly Net Forecast & Best Hours -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                  <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
+                  <span data-i18n="title_best_hours">AI Peak Hours Optimizer</span>
+                </h3>
+                <span class="text-[11px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 font-semibold border border-amber-500/20">Bengaluru Central</span>
+              </div>
+              <p class="text-xs text-slate-400 mb-3" data-i18n="best_hours_desc">Earning rates based on real-time order surges and trip fares:</p>
+
+              <!-- Best Hours Pills -->
+              <div id="bestHoursList" class="space-y-2 text-xs">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 rounded-xl bg-blue-950/40 border border-blue-800/30 text-xs text-blue-300 flex items-start space-x-2">
+              <i data-lucide="info" class="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5"></i>
+              <span id="aiRecommendationText">Shift 2 hours from 3:30 PM lull to 8:30-10:30 PM dinner surge to boost weekly net take-home by ~₹1,850.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Transaction Ledger -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <i data-lucide="list" class="w-4 h-4 text-slate-400"></i>
+              <span data-i18n="title_recent_tx">Recent Inflow & Deductions</span>
+            </h3>
+            <span class="text-xs text-slate-500" id="txCountBadge">15 records</span>
+          </div>
+
+          <div id="recentTxTable" class="divide-y divide-slate-800 text-xs">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 2: SMART INGESTION (OCR & VOICE) ================= -->
+      <section id="view-ingestion" class="hidden space-y-6">
+        <!-- Ingestion Hub Header -->
+        <div class="bg-gradient-to-r from-slate-900 via-indigo-950/30 to-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5">
+          <div class="flex items-center space-x-3 mb-2">
+            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+              <i data-lucide="cpu" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-white" data-i18n="ingest_header">Voice-First & Screenshot Ingestion Layer</h2>
+              <p class="text-xs text-slate-400" data-i18n="ingest_subtitle">No tedious manual typing. Read payouts from screenshots, speak in Hindi/English, or import CSV.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+          <!-- 1. Voice Logging Module -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                  <i data-lucide="mic" class="w-4 h-4 text-rose-500"></i>
+                  <span data-i18n="title_voice_log">Voice Entry (Web Speech API)</span>
+                </h3>
+                <span class="text-[11px] font-semibold text-rose-400 bg-rose-500/10 px-2 py-0.5 rounded-full border border-rose-500/20">Hindi & English</span>
+              </div>
+
+              <p class="text-xs text-slate-400 mb-4" data-i18n="voice_desc">
+                Tap the microphone and speak naturally (e.g., <i>"आज स्विगी से 850 कमाए और 200 का पेट्रोल भरा"</i>):
+              </p>
+
+              <!-- Mic Record Button -->
+              <div class="flex flex-col items-center justify-center py-6 bg-slate-950/60 rounded-xl border border-dashed border-slate-800 mb-4">
+                <button id="recordVoiceBtn" onclick="toggleVoiceRecording()" class="w-16 h-16 rounded-full bg-gradient-to-tr from-rose-600 to-orange-500 hover:from-rose-500 hover:to-orange-400 flex items-center justify-center text-white shadow-xl shadow-rose-950/50 transition transform active:scale-95">
+                  <i id="micIcon" data-lucide="mic" class="w-7 h-7"></i>
+                </button>
+                <span id="recordingStatus" class="text-xs text-slate-400 font-medium mt-3" data-i18n="tap_to_speak">Tap to record voice entry</span>
+                <div id="voiceWaveAnimation" class="hidden flex items-center space-x-1 mt-2">
+                  <span class="w-1 h-3 bg-rose-500 animate-bounce"></span>
+                  <span class="w-1 h-5 bg-rose-400 animate-bounce delay-75"></span>
+                  <span class="w-1 h-4 bg-orange-400 animate-bounce delay-150"></span>
+                  <span class="w-1 h-6 bg-rose-500 animate-bounce delay-100"></span>
+                </div>
+              </div>
+
+              <!-- Quick Demo Voice Utterance Buttons -->
+              <div class="mb-3">
+                <label class="text-[11px] font-semibold text-slate-400 mb-2 block" data-i18n="lbl_one_tap_demo">Or tap sample voice prompt:</label>
+                <div class="space-y-1.5">
+                  <button onclick="simulateVoice('आज स्विगी से 850 कमाए और 200 का पेट्रोल भरा')" class="w-full text-left px-3 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-750 text-xs text-slate-300 border border-slate-700/60 transition flex items-center justify-between">
+                    <span>"आज स्विगी से 850 कमाए और 200 का पेट्रोल भरा"</span>
+                    <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>
+                  </button>
+                  <button onclick="simulateVoice('Uber trip 1450 rupees cng 350 maintenance 150')" class="w-full text-left px-3 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-750 text-xs text-slate-300 border border-slate-700/60 transition flex items-center justify-between">
+                    <span>"Uber trip 1450 rupees cng 350 maintenance 150"</span>
+                    <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>
+                  </button>
+                  <button onclick="simulateVoice('Zomato se 950 mila tips 80 rupaye')" class="w-full text-left px-3 py-2 rounded-lg bg-slate-800/80 hover:bg-slate-750 text-xs text-slate-300 border border-slate-700/60 transition flex items-center justify-between">
+                    <span>"Zomato se 950 mila tips 80 rupaye"</span>
+                    <i data-lucide="play" class="w-3 h-3 text-rose-400"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Voice Result Output Card -->
+            <div id="voiceResultBox" class="hidden p-3 rounded-xl bg-slate-800/60 border border-emerald-500/30 text-xs">
+              <div class="flex items-center justify-between text-emerald-400 font-bold mb-1">
+                <span>Entry Parsed Successfully</span>
+                <button onclick="speakVoiceSummary()" title="Listen audio feedback" class="text-slate-300 hover:text-white p-1">
+                  <i data-lucide="volume-2" class="w-4 h-4"></i>
+                </button>
+              </div>
+              <p id="voiceResultText" class="text-slate-300"></p>
+            </div>
+          </div>
+
+          <!-- 2. Screenshot OCR Payout Parser -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                  <i data-lucide="file-image" class="w-4 h-4 text-blue-400"></i>
+                  <span data-i18n="title_ocr_payout">Payout Screenshot OCR</span>
+                </h3>
+                <span class="text-[11px] font-semibold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">RapidOCR ONNX</span>
+              </div>
+
+              <p class="text-xs text-slate-400 mb-4" data-i18n="ocr_desc">
+                Upload your weekly statement screenshot from Swiggy, Zomato, Uber, or Ola. Our engine extracts payouts, incentives, and deductions:
+              </p>
+
+              <!-- File Dropzone -->
+              <div id="ocrDropzone" onclick="document.getElementById('ocrFileInput').click()" class="border-2 border-dashed border-slate-700 hover:border-blue-500 rounded-xl p-5 text-center cursor-pointer bg-slate-950/40 transition mb-4">
+                <input type="file" id="ocrFileInput" accept="image/*" class="hidden" onchange="handleOcrFileUpload(event)">
+                <div class="flex flex-col items-center justify-center">
+                  <div class="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 mb-2">
+                    <i data-lucide="upload-cloud" class="w-5 h-5"></i>
+                  </div>
+                  <span class="text-xs font-semibold text-slate-200" data-i18n="upload_prompt">Click or drag screenshot here</span>
+                  <span class="text-[10px] text-slate-500 mt-1">PNG, JPG or WebP (max 5MB)</span>
+                </div>
+              </div>
+
+              <!-- 1-Click Preset Screenshot Buttons for Hackathon Demo -->
+              <div>
+                <label class="text-[11px] font-semibold text-slate-400 mb-2 block" data-i18n="lbl_one_tap_ocr">1-Click Test with Realistic Statements:</label>
+                <div class="grid grid-cols-3 gap-2">
+                  <button onclick="testPresetOcr('swiggy')" class="px-2.5 py-2 rounded-lg bg-orange-950/40 hover:bg-orange-900/50 border border-orange-700/40 text-xs font-semibold text-orange-300 flex flex-col items-center space-y-1 transition">
+                    <span class="font-bold">Swiggy</span>
+                    <span class="text-[10px] text-orange-400/80">₹5,420 Payout</span>
+                  </button>
+                  <button onclick="testPresetOcr('zomato')" class="px-2.5 py-2 rounded-lg bg-rose-950/40 hover:bg-rose-900/50 border border-rose-700/40 text-xs font-semibold text-rose-300 flex flex-col items-center space-y-1 transition">
+                    <span class="font-bold">Zomato</span>
+                    <span class="text-[10px] text-rose-400/80">₹4,890 Payout</span>
+                  </button>
+                  <button onclick="testPresetOcr('uber')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-750 border border-slate-700 text-xs font-semibold text-slate-200 flex flex-col items-center space-y-1 transition">
+                    <span class="font-bold">Uber</span>
+                    <span class="text-[10px] text-slate-400">₹8,150 Payout</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- OCR Result Box -->
+            <div id="ocrResultBox" class="hidden mt-4 p-3 rounded-xl bg-slate-800/80 border border-blue-500/30 text-xs">
+              <div class="flex items-center justify-between font-bold text-blue-400 mb-2">
+                <span id="ocrResultPlatform">Platform Detected</span>
+                <span id="ocrConfidenceBadge" class="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-300">96% Conf</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2 text-slate-300 mb-2">
+                <div>Gross Payout: <b id="ocrGrossAmount" class="text-white">₹0</b></div>
+                <div>Trips / Orders: <b id="ocrTripCount" class="text-white">0</b></div>
+                <div>Incentive Bonus: <b id="ocrIncentive" class="text-emerald-400">₹0</b></div>
+                <div>Deductions / TDS: <b id="ocrDeductions" class="text-rose-400">₹0</b></div>
+              </div>
+              <div class="text-[10px] text-slate-400 italic" id="ocrPeriodLabel">Period: Nov 2026</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CSV Bulk Import & Manual Quick-Log Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- Quick Manual Entry -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5">
+            <h3 class="text-sm font-bold text-white mb-3 flex items-center space-x-2">
+              <i data-lucide="edit-3" class="w-4 h-4 text-amber-400"></i>
+              <span data-i18n="title_manual_log">Quick Manual Entry</span>
+            </h3>
+            <div class="grid grid-cols-2 gap-2 mb-3">
+              <div>
+                <label class="text-[11px] text-slate-400 block mb-1">Type</label>
+                <select id="manType" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white">
+                  <option value="expense">Expense (खर्च)</option>
+                  <option value="income">Income (कमाई)</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-[11px] text-slate-400 block mb-1">Category / Platform</label>
+                <select id="manCat" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1.5 text-xs text-white">
+                  <option value="Fuel">Fuel (पेट्रोल)</option>
+                  <option value="EMI">Vehicle EMI (किस्त)</option>
+                  <option value="Maintenance">Maintenance / Service</option>
+                  <option value="Swiggy">Swiggy Delivery</option>
+                  <option value="Uber">Uber Rides</option>
+                  <option value="Zomato">Zomato Fleet</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex items-center space-x-2 mb-3">
+              <div class="flex-1">
+                <label class="text-[11px] text-slate-400 block mb-1">Amount (₹)</label>
+                <input type="number" id="manAmount" placeholder="e.g. 250" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white">
+              </div>
+              <div class="flex-1">
+                <label class="text-[11px] text-slate-400 block mb-1">Note (Optional)</label>
+                <input type="text" id="manDesc" placeholder="e.g. Petrol 2.5L" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white">
+              </div>
+            </div>
+            <button onclick="submitManualLog()" class="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white border border-slate-700 transition">
+              Add Record
+            </button>
+          </div>
+
+          <!-- Bulk CSV Upload -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-5 flex flex-col justify-between">
+            <div>
+              <h3 class="text-sm font-bold text-white mb-2 flex items-center space-x-2">
+                <i data-lucide="file-spreadsheet" class="w-4 h-4 text-emerald-400"></i>
+                <span data-i18n="title_csv_import">CSV Bulk Import</span>
+              </h3>
+              <p class="text-xs text-slate-400 mb-3" data-i18n="csv_desc">
+                Import statements from Excel or bank aggregation files in one click:
+              </p>
+            </div>
+            <div class="flex items-center space-x-2">
+              <input type="file" id="csvFileInput" accept=".csv" class="hidden" onchange="handleCsvUpload(event)">
+              <button onclick="document.getElementById('csvFileInput').click()" class="flex-1 py-2 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/30 text-emerald-300 text-xs font-bold transition flex items-center justify-center space-x-1.5">
+                <i data-lucide="upload" class="w-3.5 h-3.5"></i>
+                <span>Upload CSV</span>
+              </button>
+              <a href="/api/transactions/sample-csv" download class="py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 text-xs font-medium transition flex items-center space-x-1">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                <span>Template</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 3: TAX & LOAN PROOF ================= -->
+      <section id="view-tax" class="hidden space-y-6">
+        <!-- Tax Insight Banner -->
+        <div class="bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 border border-blue-800/40 rounded-2xl p-5">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold border border-blue-500/30">FY 2026-27 Union Budget</span>
+                <span class="text-xs text-emerald-400 font-semibold flex items-center"><i data-lucide="check-circle" class="w-3.5 h-3.5 mr-1"></i> Section 87A Zero Tax</span>
+              </div>
+              <h2 class="text-lg font-extrabold text-white" data-i18n="tax_banner_title">Zero Tax Clarity & Section 194-O TDS Refund</h2>
+              <p class="text-xs text-slate-300 mt-1 max-w-2xl" data-i18n="tax_banner_desc">
+                Most gig workers earn between ₹2.5L and ₹4.5L annually. Under the New Tax Regime (rebate up to ₹12 Lakh), your tax is <b>₹0</b>. Better yet, you can claim your 1% TDS back!
+              </p>
+            </div>
+            <a href="/api/reports/income-proof-pdf" target="_blank" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white shadow-lg shadow-emerald-950/40 flex items-center justify-center space-x-2 transition">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span data-i18n="btn_download_official_pdf">Download Certified PDF</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Tax Breakdown Calculator Card -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Annual Projection -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+            <span class="text-xs text-slate-400 font-medium block mb-1">Annualized Gross Income</span>
+            <div id="taxAnnualGross" class="text-2xl font-bold text-white">₹3,93,600</div>
+            <p class="text-[11px] text-slate-500 mt-1">Based on trailing multi-platform run-rate</p>
+          </div>
+
+          <!-- Presumptive Expense Allowance (Sec 44ADA) -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+            <span class="text-xs text-slate-400 font-medium block mb-1">Section 44ADA Deduction</span>
+            <div id="taxPresumptiveDed" class="text-2xl font-bold text-blue-400">₹1,96,800</div>
+            <p class="text-[11px] text-slate-500 mt-1">50% statutory allowance for fuel/maintenance</p>
+          </div>
+
+          <!-- Net Tax Payable -->
+          <div class="bg-slate-900 border border-emerald-500/30 rounded-2xl p-4 bg-emerald-950/10">
+            <span class="text-xs text-emerald-400 font-medium block mb-1">Final Tax Payable</span>
+            <div id="taxPayableAmount" class="text-2xl font-bold text-emerald-400">₹0.00</div>
+            <p class="text-[11px] text-emerald-500/80 mt-1">100% Tax Rebate under Sec 87A</p>
+          </div>
+        </div>
+
+        <!-- TDS Refund Finder (Section 194-O) -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+              <i data-lucide="badge-percent" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-white" data-i18n="title_tds_refund">Section 194-O TDS Refund Eligibility</h3>
+              <p class="text-xs text-slate-400" data-i18n="subtitle_tds_refund">Platform aggregators automatically deduct 1% TDS on your total payouts.</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-950 rounded-xl p-4 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span class="text-xs text-slate-400">TDS Deducted by Swiggy / Uber / Zomato:</span>
+              <div id="tdsDeductedValue" class="text-xl font-extrabold text-amber-400 mt-0.5">₹3,936.00</div>
+              <p class="text-[11px] text-slate-500 mt-1">Because your tax is ₹0, this entire amount belongs back in your bank account!</p>
+            </div>
+            <button onclick="showItrGuideModal()" class="px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/30 text-amber-300 text-xs font-bold transition flex items-center space-x-1.5">
+              <i data-lucide="corner-down-right" class="w-4 h-4"></i>
+              <span data-i18n="btn_claim_refund">How to Claim TDS Refund</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Loan-Ready Proof Preview Card -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+              <i data-lucide="file-check" class="w-4 h-4 text-emerald-400"></i>
+              <span data-i18n="title_proof_doc">Certified Income Proof Document (For Banks & Landlords)</span>
+            </h3>
+            <span class="text-xs text-slate-400">Digital QR Verified</span>
+          </div>
+
+          <!-- Document Mock Preview -->
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs space-y-3 font-mono">
+            <div class="flex justify-between border-b border-slate-800 pb-2 text-slate-400">
+              <span>CERTIFICATE ID: GS-VER-98241</span>
+              <span>ISSUED: 16 NOV 2026</span>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-slate-300">
+              <div>Worker: <b class="text-white">Rajesh Kumar</b></div>
+              <div>e-Shram: <b class="text-white">UAN-8834-9102-7712</b></div>
+              <div>Vehicle: <b class="text-white">KA 05 EQ 8421</b></div>
+              <div>Stability Index: <b class="text-emerald-400">88% (High)</b></div>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 text-[11px] text-slate-300">
+              <b>Certified Net Cashflow:</b> Trailing 60-day gross ₹98,400 minus verified fuel/EMI deductions ₹31,000 = Certified Net take-home ₹67,400 (₹22,466/mo).
+            </div>
+          </div>
+
+          <div class="mt-4 flex flex-col sm:flex-row items-center gap-3">
+            <a href="/api/reports/income-proof-pdf" target="_blank" class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-xs font-bold text-white shadow-lg shadow-blue-900/30 flex items-center justify-center space-x-2 transition">
+              <i data-lucide="file-down" class="w-4 h-4"></i>
+              <span data-i18n="btn_download_income_pdf">Download Official PDF Certificate</span>
+            </a>
+            <button onclick="previewCertificateModal()" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-slate-300 border border-slate-700 transition flex items-center justify-center space-x-1.5">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+              <span data-i18n="btn_preview_cert">Interactive Fullscreen Preview</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 4: PROTECT & 90-DAYS ================= -->
+      <section id="view-protect" class="hidden space-y-6">
+        <!-- Day-Shield Insurance Hero -->
+        <div class="bg-gradient-to-r from-slate-900 via-emerald-950/30 to-slate-900 border border-slate-800 rounded-2xl p-5">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+              <div class="flex items-center space-x-2 mb-1">
+                <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">IRDAI Mock Partner Sandbox</span>
+                <span id="protectStatusPill" class="text-xs text-emerald-400 font-semibold">Active Policy: GS-DIGIT-2026-99241</span>
+              </div>
+              <h2 class="text-lg font-extrabold text-white" data-i18n="protect_hero_title">Day-Wise Micro-Accident Cover</h2>
+              <p class="text-xs text-slate-300 mt-1 max-w-xl" data-i18n="protect_hero_desc">
+                Traditional annual insurance is too expensive. GigSure switches on cover only on the days you ride. Just ₹5 for ₹2,00,000 protection while on shift!
+              </p>
+            </div>
+            <button onclick="openEmergencyClaimModal()" class="px-4 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-xs font-bold text-white shadow-lg shadow-rose-950/40 flex items-center justify-center space-x-2 transition">
+              <i data-lucide="phone-call" class="w-4 h-4"></i>
+              <span data-i18n="btn_emergency_sos">Emergency Claim SOS</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3 Pillars of Protection Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- 1. Day-Shield Policy Card -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs text-slate-400 font-medium">Shift Cover Status</span>
+              <span id="shiftIndicatorBadge" class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">COVERED TODAY</span>
+            </div>
+            <div class="text-2xl font-extrabold text-white">₹2,00,000</div>
+            <div class="text-[11px] text-slate-400 mt-1 space-y-1">
+              <div>• Accidental Death & Disability: ₹2,00,000</div>
+              <div>• Emergency Road Meds: ₹50,000</div>
+              <div>• Loss of Daily Wage: ₹500/day</div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+              <span class="text-slate-500">Daily Cost:</span>
+              <span class="font-bold text-emerald-400">₹5.00 / day worked</span>
+            </div>
+          </div>
+
+          <!-- 2. Social Security 90/120 Day Rule Tracker -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs text-slate-400 font-medium">Social Security Code 2026</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 font-bold">90-Day Rule</span>
+            </div>
+            <div class="flex items-baseline space-x-2">
+              <div id="workedDaysCount" class="text-2xl font-extrabold text-white">76</div>
+              <span class="text-xs text-slate-500">/ 90 Days Logged</span>
+            </div>
+            <!-- Progress Bar -->
+            <div class="w-full bg-slate-800 rounded-full h-2.5 mt-2 overflow-hidden">
+              <div id="workedDaysProgressBar" class="bg-gradient-to-r from-blue-500 to-indigo-500 h-2.5 rounded-full" style="width: 84%"></div>
+            </div>
+            <div class="text-[11px] text-slate-400 mt-2">
+              <b id="daysRemainingCount" class="text-blue-400">14 days left</b> to unlock State Gig Worker Welfare Fund benefits.
+            </div>
+          </div>
+
+          <!-- 3. Safety-Net Score & Runway -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs text-slate-400 font-medium">Safety-Net Score</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold">Healthy Buffer</span>
+            </div>
+            <div class="flex items-baseline space-x-2">
+              <div id="safetyScoreDisplay" class="text-2xl font-extrabold text-emerald-400">82</div>
+              <span class="text-xs text-slate-500">/ 100</span>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2">
+              Liquid Savings: <b id="liquidSavingsVal" class="text-white">₹21,500</b>
+              <br>Daily Expense Burn: <b class="text-slate-300">₹620/day</b>
+              <br><b id="runwayDaysDisplay" class="text-emerald-400">34.7 Days</b> of Emergency Living Runway
+            </p>
+          </div>
+        </div>
+
+        <!-- Matched Government Schemes Navigator -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-sm font-bold text-white flex items-center space-x-2">
+                <i data-lucide="landmark" class="w-4 h-4 text-amber-400"></i>
+                <span data-i18n="title_schemes">Matched Government Welfare Schemes</span>
+              </h3>
+              <p class="text-xs text-slate-400 mt-0.5">Automated scheme matching based on your e-Shram profile and worked days</p>
+            </div>
+          </div>
+
+          <div id="schemesList" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            <!-- Injected via JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TAB 5: TRUST & PRIVACY ================= -->
+      <section id="view-trust" class="hidden space-y-6">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+              <i data-lucide="shield-alert" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-white">Trust Layer & Worker Data Sovereignty</h2>
+              <p class="text-xs text-slate-400">Slide 4 Architecture: "Consent for every data source · encrypted at rest and in transit · workers can export or delete their data at any time"</p>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-xs text-slate-300">
+            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start space-x-3">
+              <i data-lucide="lock" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+              <div>
+                <b class="text-white">Zero Platform Monopoly:</b> You own your financial data. Neither Swiggy nor Uber controls your credit record or safety net.
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start space-x-3">
+              <i data-lucide="check-shield" class="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5"></i>
+              <div>
+                <b class="text-white">Account Aggregator (AA) Ready:</b> Consent-first ingestion designed to link with RBI-licensed Account Aggregators (Setu, OneMoney).
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start space-x-3">
+              <i data-lucide="trash-2" class="w-4 h-4 text-rose-400 flex-shrink-0 mt-0.5"></i>
+              <div>
+                <b class="text-white">Right to Erasure:</b> Workers can reset or permanently purge all stored payouts and personal identifiers in 1 click.
+              </div>
+            </div>
+          </div>
+
+          <!-- Privacy Action Buttons -->
+          <div class="mt-6 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center gap-3">
+            <button onclick="exportAllDataJson()" class="w-full sm:w-auto px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-200 text-xs font-semibold border border-slate-700 flex items-center justify-center space-x-1.5 transition">
+              <i data-lucide="download" class="w-3.5 h-3.5"></i>
+              <span>Export My Data (JSON)</span>
+            </button>
+            <button onclick="confirmResetData()" class="w-full sm:w-auto px-4 py-2 rounded-xl bg-rose-600/20 hover:bg-rose-600/30 text-rose-400 text-xs font-semibold border border-rose-500/30 flex items-center justify-center space-x-1.5 transition">
+              <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              <span>Erase & Reset All Data</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Status Bar -->
+    <footer class="bg-slate-900 border-t border-slate-800 px-4 py-2.5 flex items-center justify-between text-[11px] text-slate-500">
+      <div class="flex items-center space-x-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+        <span>FastAPI v1.0 • RapidOCR • PyMuPDF</span>
+      </div>
+      <span>The Corporate Glitch '26</span>
+    </footer>
+  </div>
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- 1. Emergency Claim SOS Modal -->
+  <div id="emergencyClaimModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-md p-5 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg bg-rose-500/20 text-rose-400 flex items-center justify-center">
+            <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+          </div>
+          <h3 class="font-bold text-white text-sm">Emergency Road Claim (Day-Shield)</h3>
+        </div>
+        <button onclick="closeModal('emergencyClaimModal')" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+
+      <p class="text-xs text-slate-400">
+        If you have met with an accident or need immediate hospital authorization while on shift:
+      </p>
+
+      <div class="space-y-3 text-xs">
+        <div>
+          <label class="block text-slate-400 mb-1">Claim Type</label>
+          <select id="claimTypeSelect" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white">
+            <option value="Road Accident & Hospitalization">Road Accident & Outpatient Care</option>
+            <option value="Bike Skid & Emergency First Aid">Bike Skid & Emergency Medical</option>
+            <option value="Third Party Property Damage">Third Party Property Damage</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">Estimated Medical Cost (₹)</label>
+          <input type="number" id="claimAmountInput" value="3500" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white">
+        </div>
+        <div>
+          <label class="block text-slate-400 mb-1">Current Hospital / Location</label>
+          <input type="text" id="claimLocationInput" value="Koramangala Emergency Ward, Bengaluru" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-white">
+        </div>
+      </div>
+
+      <div class="p-3 rounded-lg bg-rose-950/40 border border-rose-800/30 text-[11px] text-rose-300 flex items-center justify-between">
+        <span>Emergency Insurer Hotline:</span>
+        <b class="text-rose-200">1800-258-9999 (24x7)</b>
+      </div>
+
+      <div class="flex items-center space-x-2">
+        <button onclick="submitEmergencyClaim()" class="flex-1 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 font-bold text-xs text-white transition">
+          Submit Instant Claim
+        </button>
+        <button onclick="closeModal('emergencyClaimModal')" class="py-2 px-4 rounded-xl bg-slate-800 text-xs text-slate-300">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Income Certificate Fullscreen Preview Modal -->
+  <div id="certificateModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-2xl max-h-[90vh] flex flex-col overflow-hidden">
+      <div class="p-4 border-b border-slate-800 flex items-center justify-between">
+        <h3 class="font-bold text-white text-sm flex items-center space-x-2">
+          <i data-lucide="file-text" class="w-4 h-4 text-emerald-400"></i>
+          <span>GigSure Certified Income Proof Preview</span>
+        </h3>
+        <button onclick="closeModal('certificateModal')" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <div class="p-4 sm:p-6 overflow-y-auto space-y-4 text-xs font-sans">
+        <div class="bg-white text-slate-900 p-6 rounded-xl shadow-xl space-y-4">
+          <div class="flex justify-between items-start border-b pb-3">
+            <div>
+              <h2 class="text-base font-extrabold text-blue-900">GIGSURE FINANCIAL VERIFICATION</h2>
+              <p class="text-[10px] text-slate-500">Certified Income Proof & Creditworthiness Record | The Corporate Glitch '26</p>
+            </div>
+            <div class="text-right">
+              <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold text-[10px]">VERIFIED RECORD</span>
+              <div class="text-[10px] font-mono text-slate-600 mt-1">GS-VER-98241</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-[11px] bg-slate-50 p-3 rounded">
+            <div><b>Worker:</b> Rajesh Kumar</div>
+            <div><b>e-Shram UAN:</b> UAN-8834-9102-7712</div>
+            <div><b>Vehicle:</b> Hero Splendor Plus (KA 05 EQ 8421)</div>
+            <div><b>Location:</b> Bengaluru, Karnataka</div>
+          </div>
+          <div>
+            <h4 class="font-bold text-blue-950 mb-1">Trailing 60-Day Cashflow Verification:</h4>
+            <div class="grid grid-cols-3 gap-2 text-center">
+              <div class="p-2 bg-slate-100 rounded">
+                <div class="text-[10px] text-slate-500">Gross Platform Payout</div>
+                <div class="font-bold text-slate-800 text-sm">₹98,400</div>
+              </div>
+              <div class="p-2 bg-slate-100 rounded">
+                <div class="text-[10px] text-slate-500">Operational Deductions</div>
+                <div class="font-bold text-rose-600 text-sm">₹31,000</div>
+              </div>
+              <div class="p-2 bg-emerald-50 rounded border border-emerald-200">
+                <div class="text-[10px] text-emerald-700">Certified Net Take-Home</div>
+                <div class="font-bold text-emerald-700 text-sm">₹67,400</div>
+              </div>
+            </div>
+          </div>
+          <div class="p-3 bg-blue-50 rounded text-[10px] text-blue-950 leading-relaxed">
+            <b>Notice to Financial Institutions & Landlords:</b> This certificate authenticates multi-platform gig revenues across Swiggy, Uber, Zomato, and Zepto with fuel and EMI calibration. Valid substitute for formal salary slips for micro-credit and rental background verification.
+          </div>
+        </div>
+      </div>
+      <div class="p-3 border-t border-slate-800 flex justify-end space-x-2">
+        <a href="/api/reports/income-proof-pdf" target="_blank" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-bold text-white flex items-center space-x-1.5">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i>
+          <span>Download PDF File</span>
+        </a>
+        <button onclick="closeModal('certificateModal')" class="px-4 py-2 rounded-xl bg-slate-800 text-xs text-slate-300">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. ITR Form Guide Modal -->
+  <div id="itrGuideModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-md p-5 space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-bold text-white text-sm flex items-center space-x-2">
+          <i data-lucide="help-circle" class="w-4 h-4 text-amber-400"></i>
+          <span>How to Claim Your ₹3,936 TDS Refund</span>
+        </h3>
+        <button onclick="closeModal('itrGuideModal')" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-4 h-4"></i></button>
+      </div>
+      <div class="space-y-3 text-xs text-slate-300">
+        <p>1. <b>File Form ITR-4 (Sugam):</b> As a platform gig worker, declare your presumptive income under Section 44ADA or 44AD.</p>
+        <p>2. <b>Verify Form 26AS / AIS:</b> The 1% TDS deducted by Swiggy and Uber will already show under Section 194-O.</p>
+        <p>3. <b>Direct Bank Credit:</b> Because your annual net income is below the ₹12,00,000 threshold (Zero Tax under Sec 87A), the Income Tax Department refunds the full ₹3,936 directly to your bank account within 14 days.</p>
+      </div>
+      <button onclick="closeModal('itrGuideModal')" class="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white transition">
+        Got It
+      </button>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
